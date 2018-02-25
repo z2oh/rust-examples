@@ -28,6 +28,14 @@ fn main() {
     let result = divide(2.0, 3.0);
     println!("Result: {}", result.unwrap());
 
+    // This code will result in a panic! Unwrapping an option with `None` will cause your program
+    // to crash.
+    /*
     let result = divide(2.0, 0.0);
-    println!("Result: {}", result.unwrap());
+    println!("Result: {}", result.unwrap()); }
+    */
+
+    // We can use one of the other `Option` methods to safely fallback, like `unwrap_or`.
+    let result = divide(2.0, 0.0);
+    println!("Result: {}", result.unwrap_or(std::f64::NAN));
 }
